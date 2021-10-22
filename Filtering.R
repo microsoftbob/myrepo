@@ -10,3 +10,8 @@ table3a <- filter(table3, Profession == "Engineering")
 #<= (Less than or equal to)
 #> (Greater than)
 #>= (Greater than or equal to)
+
+
+#### Filter on Multiple Variables in dplyr ####
+table3a <- filter(table3, Profession == "Engineering" & 
+                    Area == "United Kingdom")
