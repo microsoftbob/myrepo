@@ -6,7 +6,8 @@ table1
 
 #### Aggregate by Field ####
 table1a <- aggregate(table1$`Actual People`, 
-        by=list(Total=table1$`Reports To Email Level 1`), 
+        by=list(Total=table1$`City`), 
         FUN=sum
 )
 table1a
+

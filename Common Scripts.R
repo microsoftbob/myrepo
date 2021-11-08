@@ -3,7 +3,10 @@ rm(list = ls())
 
 #### Read Excel ####
 library(readxl)
-table1 <- read_excel(file.choose())
+table1 <- read_excel(file.choose(), skip =9)
+
+library(readxl)
+table2 <- read_excel(file.choose(), skip =10)
 
 #### Summarize information about the data in general #### 
 library(psych)
