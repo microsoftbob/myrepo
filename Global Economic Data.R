@@ -4,3 +4,8 @@
 
 library(rdbnomics)
 
+dim <- list(
+  country = c("DZ", "PE", "AD"),
+  indicator = c("NY.GDP.MKTP.CD")
+)
+df3 <- rdb("WB", "WDI", dimensions = dim)
