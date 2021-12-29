@@ -36,6 +36,29 @@ worldpop <- merge(x = worldpop, y = medage,
                   all.x = TRUE)
 worldpop$'Median Age' <- worldpop$value
 worldpop <- subset(worldpop, select = -c(charcode.y, Year.y, value))
+rm(medage)
+
+#Pull in Population Growth by country and year#
+popgrowth<- wpp.indicator("popgrowth")
+popgrowth<- as.data.frame(popgrowth)
+popgrowth$Joinkey = paste(popgrowth$charcode, "_", popgrowth$Year)
+worldpop <- merge(x = worldpop, y = popgrowth, 
+                  by = "Joinkey", 
+                  all.x = TRUE)
+worldpop$'Population Growth' <- worldpop$value
+worldpop <- subset(worldpop, select = -c(charcode, Year, value))
+rm(popgrowth)
+
+#Pull in Net Migration#
+mig<- wpp.indicator("mig")
+mig<- as.data.frame(mig)
+mig$Joinkey = paste(mig$charcode, "_", mig$Year)
+worldpop <- merge(x = worldpop, y = mig, 
+                  by = "Joinkey", 
+                  all.x = TRUE)
+worldpop$'Net Migration' <- worldpop$value
+worldpop <- subset(worldpop, select = -c(charcode, Year, value))
+rm(mig)
 
 #Last Steps to clean up table#
 worldpop$charcode <- worldpop$charcode.x
@@ -43,3 +66,5 @@ worldpop$Year <- worldpop$Year.x
 worldpop$Country <- worldpop$name
 worldpop <- subset(worldpop, select = -c(charcode.x, Year.x, name))
 worldpop[order(worldpop$Country, worldpop$Year), ]
+rm(countrykey)
+worldpop$Population <-worldpop$Population * 1000
