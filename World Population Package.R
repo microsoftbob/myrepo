@@ -68,3 +68,11 @@ worldpop <- subset(worldpop, select = -c(charcode.x, Year.x, name))
 worldpop[order(worldpop$Country, worldpop$Year), ]
 rm(countrykey)
 worldpop$Population <-worldpop$Population * 1000
+worldpop$`Net Migration` <- worldpop$`Net Migration` * 1000
+
+#####Subsetting#####
+worldpop1<- subset(worldpop, Year == 2040)
+worldpop1<- subset(worldpop1, is.country == TRUE)
+worldpop1[order(worldpop1$`Population Growth`),]
+
+rm(worldpop1)
