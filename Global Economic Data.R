@@ -11,12 +11,12 @@
    countrykey<-iso3166
    rm(iso3166)
    rm(iso3166ud)
-   tmod <- as.vector(countrykey$charcode) 
+   countrylist <- as.vector(countrykey$charcode) 
 
 #####Following Code pulls in annual GDP for all countries USD##### 
 library(rdbnomics)
 dim <- list(
-  country = tmod,
+  country = countrylist,
   indicator = c("NY.GDP.MKTP.CD")
 )
 GlobalGDP<- rdb("WB", "WDI", dimensions = dim)
@@ -30,7 +30,7 @@ GlobalGDP$Joinkey = paste(GlobalGDP$charcode,"_",GlobalGDP$original_period)
 
 #####Following Code pulls in GDP Per Capita in USD##### 
 dim <- list(
-  country = tmod,
+  country = countrylist,
   indicator = c("NY.GDP.PCAP.CD")
 )
 GlobalGDP_PC<- rdb("WB", "WDI", dimensions = dim)
@@ -44,7 +44,7 @@ GlobalGDP_PC$Joinkey = paste(GlobalGDP_PC$charcode,"_",GlobalGDP_PC$original_per
 
 #####Following Code pulls in Business friendly indicator##### 
 dim <- list(
-  country = tmod,
+  country = countrylist,
   indicator = c("IC.BUS.EASE.XQ")
 )
 Bus_Friendly_Laws_Ind<- rdb("WB", "JOBS", dimensions = dim)
