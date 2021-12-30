@@ -28,6 +28,20 @@ Globalecon <- merge(x = Globalecon, y = Bus_Friendly_Laws_Ind,
                     all.x = TRUE, 
                     no.dups = TRUE)
 
+Globalecon <- merge(x = Globalecon, y = Broadband, 
+                    by = "Joinkey", 
+                    all.x = TRUE)
+
+#####Clean Up#####
+rm(GlobalGDP)
+rm(GlobalGDP_PC)
+rm(Bus_Friendly_Laws_Ind)
+rm(Broadband)
+
+rm(countrykey)
+rm(countrylist)
+
+
 #####Subsetting#####
 Globalecon1<- subset(Globalecon, original_period == 2020)
 Globalecon1<- subset(Globalecon1, is.country == TRUE)
