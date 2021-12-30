@@ -14,8 +14,9 @@ countrylist <- as.vector(countrykey$charcode)
 library(rdbnomics)
 
 source("Global GDP.R")
-source("GDP Per Captia.R")
+source("GDP Per Capita.R")
 source("Business Friendliness Rank.R")
+source("Global Broadband.R")
 
 #####Following Code merges sources above into 1 big table##### 
 Globalecon <- merge(x = GlobalGDP, y = GlobalGDP_PC, 
