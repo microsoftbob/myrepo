@@ -16,4 +16,4 @@ Broadband$Joinkey = paste(Broadband$charcode,"_",Broadband$original_period)
 
 library(dplyr)
 Broadband <- Broadband %>%
-  select(13, 14, 16, 21)
+  select(16, 21)

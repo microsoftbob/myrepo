@@ -1,4 +1,5 @@
 #####Following Code pulls in Business friendly indicator##### 
+library(rdbnomics)
 dim <- list(
   country = countrylist,
   indicator = c("IC.BUS.EASE.XQ")
@@ -15,4 +16,4 @@ Bus_Friendly_Laws_Ind$Joinkey = paste(Bus_Friendly_Laws_Ind$charcode,"_",Bus_Fri
 
 library(dplyr)
 Bus_Friendly_Laws_Ind <- Bus_Friendly_Laws_Ind %>%
-  select(13, 14, 16, 21)
+  select(16, 21)

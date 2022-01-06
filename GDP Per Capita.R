@@ -1,4 +1,5 @@
 #####Following Code pulls in GDP Per Capita in USD##### 
+library(rdbnomics)
 dim <- list(
   country = countrylist,
   indicator = c("NY.GDP.PCAP.CD")
@@ -15,4 +16,4 @@ GlobalGDP_PC$Joinkey = paste(GlobalGDP_PC$charcode,"_",GlobalGDP_PC$original_per
 
 library(dplyr)
 GlobalGDP_PC <- GlobalGDP_PC %>%
-  select(13, 14, 16, 21)
+  select(16, 21)
